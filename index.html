@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Image Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Image Generator</h1>
+            <p>Transform your text into stunning images using Cloudflare AI</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <textarea 
+                    id="promptInput" 
+                    placeholder="Describe the image you want to generate... (e.g., 'A serene landscape with mountains and a lake at sunset')"
+                    rows="4"
+                ></textarea>
+                
+                <div class="controls">
+                    <select id="modelSelect">
+                        <option value="black-forest-labs/flux-1-schnell">Flux 1.1 Schnell (Fast)</option>
+                        <option value="black-forest-labs/flux-1-pro">Flux 1.1 Pro (High Quality)</option>
+                        <option value="stability-ai/stable-diffusion-xl">Stable Diffusion XL</option>
+                    </select>
+                    
+                    <button id="generateBtn" class="generate-btn">
+                        Generate Image
+                    </button>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Generating your image... This may take a few seconds.</p>
+                </div>
+
+                <div id="result" class="result hidden">
+                    <img id="generatedImage" alt="Generated image">
+                    <div class="image-actions">
+                        <button id="downloadBtn" class="download-btn">Download Image</button>
+                        <button id="regenerateBtn" class="regenerate-btn">Generate Again</button>
+                    </div>
+                </div>
+
+                <div id="error" class="error hidden">
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
